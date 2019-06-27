@@ -7,11 +7,10 @@ namespace Ex2
     {
         static void Main(string[] args)
         {
-            var number1 = new Telephone("999", "999999");
-            Console.WriteLine(number1.OutputPhone());
-            var number2 = new Telephone(null, "999999");
-            number2.OutputPhone();
-            Console.WriteLine(number2.OutputPhone());
+            var number1 = new Telephone("1999", "1999999");
+            Console.WriteLine(number1.OutputPhone);
+            var number2 = new Telephone(null, "1999999");
+            Console.WriteLine(number2.OutputPhone);
         }
     }
     public class Telephone
@@ -41,15 +40,13 @@ namespace Ex2
             _phoneNumber = phoneNumber;
         }
 
-        public string OutputPhone()
+        public string OutputPhone
         {
-            if (PhoneCode == null)
+            get
             {
-                return PhoneNumber;
-            }
-            else
-            {
-                return '(' + PhoneCode + ')' + PhoneNumber;
+                if (_phoneCode == null) return _phoneNumber;
+
+                return $"({PhoneCode}){PhoneNumber}";
             }
         }
     }
